@@ -25,18 +25,10 @@
                 destinationType: Camera.DestinationType.FILE_URI,
                 targetWidth: 300,
                 targetHeight: 300,
-                correctOrientation: true,
-                cameraDirection: Camera.Direction.FRONT
+                correctOrientation: true
             };
 
             navigator.camera.getPicture(shotHandler, errorHandler, opt);
-
-            logger(navigator.toString());
-        },
-
-        logger = function (data) {
-            var logger = document.querySelector('#pic');
-            logger.innerHTML = data;
         },
 
         shotHandler = function (imgURI) {
@@ -46,7 +38,7 @@
                 paintPicture(img);
             };
 
-            img.src = 'data:image/jpeg;base64,' + imgURI;
+            img.src = imgURI;
 
         },
 

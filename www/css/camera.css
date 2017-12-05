@@ -39,12 +39,16 @@ body {
     border: 1px solid;
     color: #FFF;
     padding: 10px;
-}
-
-#button-action {
     font-size: large;
     border-radius: 10px;
+}
+
+.button.camera {
     background-color: #FD4140;
+}
+
+.button.gallery {
+    background-color: #4afd00;
 }
 
 .button-filter {
