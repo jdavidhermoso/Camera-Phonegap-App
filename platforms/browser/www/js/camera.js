@@ -5,8 +5,15 @@
         },
 
         initButtons = function () {
-            var CTA = document.querySelector('#button-action');
-            CTA.addEventListener('click', takePicture);
+            var cameraBtn = document.querySelector('#button-action');
+            cameraBtn.addEventListener('click', function() {
+                loadPicture(Camera.PictureSourceType.CAMERA);
+            });
+
+            var galleryBtn = document.querySelector('#button-gallery');
+            galleryBtn.addEventListener('click', function() {
+                loadPicture(Camera.PictureSourceType.PHOTOLIBRARY);
+            });
 
             var filterButtons = document.querySelectorAll('.button-filter');
 
@@ -18,17 +25,24 @@
             }
         },
 
-        takePicture = function () {
+        loadPicture = function (sourceType) {
             var opt = {
                 Direction: 0,
-                quality: 20,
+                quality: 50,
+                sourceType: sourceType,
                 destinationType: Camera.DestinationType.FILE_URI,
                 targetWidth: 300,
                 targetHeight: 300,
-                correctOrientation: true
+                correctOrientation: true,
+                allowEdit: true,
+                saveToPhotoAlbum: true
             };
 
             navigator.camera.getPicture(shotHandler, errorHandler, opt);
+        },
+
+        takePicture = function () {
+
         },
 
         shotHandler = function (imgURI) {

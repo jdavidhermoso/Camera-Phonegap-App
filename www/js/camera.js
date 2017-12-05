@@ -33,7 +33,9 @@
                 destinationType: Camera.DestinationType.FILE_URI,
                 targetWidth: 300,
                 targetHeight: 300,
-                correctOrientation: true
+                correctOrientation: true,
+                allowEdit: true,
+                saveToPhotoAlbum: true
             };
 
             navigator.camera.getPicture(shotHandler, errorHandler, opt);
